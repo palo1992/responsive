@@ -1,0 +1,17 @@
+# stranka sa nenasla.. presmerovanie
+ErrorDocument 404 /gallery.html
+
+
+# linky bez pripon
+
+RewriteEngine on
+
+# ak existuje subor nespravi nic aby nedoslo ku chybe
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# skontroluj subor v zlozke s .html vynimkou
+
+RewriteCond %{REQUEST_FILENAME}\.html -f
+
+RewriteRule ^(.*)$ $1.html [NC,L]
